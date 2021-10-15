@@ -1,23 +1,26 @@
-PImage Garden;
-float x;
-float y;
-float speedX = 8;
+PImage img1, img2;
+PVector pos1, pos2;
+
+
 
 void setup() {
-  size(500, 500, P2D);
-  Garden = loadImage("Garden.jpg");
-  x = width/2;
-  y = height/2;
-  imageMode(CENTER);
+  size(1000, 800, P2D);
+  
+  img1 = loadImage("game.png");
+  img2 = loadImage("charachter.png");
+
+  pos1 = new PVector(500,500);
+  pos2 = new PVector(width, height);
+
+  
 }
 
 void draw() {
-  background(213, 235, 255);
+  imageMode(CORNER);
+  image(img1, 0, 0, width, height);
+
+  imageMode(CENTER);
+  image(img2, mouseX, mouseY, 300, 200);
   
-  x += speedX;
-  if (x > width || x < 0) {
-    speedX *= -1;
-  }
- 
-  image(Garden, x, y, Garden.width * (height / Garden.height), height);
+  
 }
